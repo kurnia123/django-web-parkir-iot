@@ -25,7 +25,7 @@ SECRET_KEY = '-ye7!$*$yc4e_-n_0+uicbnym-t43i#n5#01j8d7i(mingk=kj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['159.65.130.187']
 
 
 # Application definition
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'MyProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'parkir1',
+        'NAME': 'parkir',
         # 'USER':'coba',
         'USER':'projectiot',
         # 'PASSWORD':'!Rizkykurniafirmansyah1',

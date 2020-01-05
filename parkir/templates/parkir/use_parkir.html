@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+	User Parkir
+{% endblock page_title %}
+
+{% block contents %}
+	<h1>Lokasi Parkir</h1>
+	{% for list in use_parkir %}
+		<a href ="{% url 'parkir:kosong' list.id_parkir %}" >
+			<button type="submit" id="parkir" class="link btn btn-primary" value="{{list.position}}">{{list.id_parkir}}</button>
+		</a>
+	{% endfor %}
+{% endblock contents %}
+
+{% block jsnya %}
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$("button.link").click(function(){
+				positions = $(this).val();
+				console.log(positions);
+
+				var dataSend = new FormData();
+				dataSend.append('positions',positions);
+
+				$(this).attr("class","btn btn-danger");
+
+				$.ajax({
+					type: "POST",
+					url: "http://192.168.1.11/setpin",
+					data: "dataSend",
+					dataType:"html",
+					success: function(response){
+
+					}
+				})
+			});
+
+		})
+	</script>
+{% endblock jsnya %}

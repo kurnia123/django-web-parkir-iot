@@ -38,12 +38,17 @@ class UseParkir(LoginRequiredMixin,ListView):
 
 
 def updateDBBooking(request,idParkir):
-	user = User.objects.get(username=request.user)
-	data = tempatParkir.objects.get(id_parkir=idParkir)
-	data.status = 'booking'
-	data.user = user
 
-	data.save()
+	try:
+		user = User.objects.get(username=request.user)
+		data = tempatParkir.objects.get(id_parkir=idParkir)
+		data.status = 'booking'
+		data.user = user
+
+		data.save()
+	except Exception as e:
+		return redirect("/parkir/")
+
 
 	return redirect("/parkir/useparkir/")
 

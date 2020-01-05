@@ -13,10 +13,10 @@ class tempatParkir(models.Model):
 	status = models.CharField(
 		choices=STATUS_CHOICES,
 		max_length=50,default='kosong')
-	position = models.IntegerField()
-	position1 = models.IntegerField()
-	delayposition = models.IntegerField()
-	delayposition1 = models.IntegerField()
+	position = models.IntegerField(null=False)
+	position1 = models.IntegerField(null=False)
+	delayposition = models.IntegerField(null=False)
+	delayposition1 = models.IntegerField(null=False)
 	user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
 
 	def __str__(self):

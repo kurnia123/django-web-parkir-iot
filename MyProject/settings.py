@@ -78,10 +78,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'parkir1',
-        'USER':'coba',
-        # 'USER':'projectiot',
-        'PASSWORD':'!Rizkykurniafirmansyah1',
-        # 'PASSWORD':'projectiot123',
+        # 'USER':'coba',
+        'USER':'projectiot',
+        # 'PASSWORD':'!Rizkykurniafirmansyah1',
+        'PASSWORD':'projectiot123',
         'HOST':'localhost',
         'POST':'3306',
     }

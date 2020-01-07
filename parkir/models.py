@@ -19,7 +19,7 @@ class tempatParkir(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
 
 	def __str__(self):
-		return "{}.{}".format(self.id,self.id_parkir)
+		return "{}".format(self.id_parkir)
 	
 
 class Booking(models.Model):

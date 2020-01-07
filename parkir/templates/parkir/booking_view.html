@@ -9,6 +9,9 @@
 		{% csrf_token %}
 		
 		{{formpinjam_senjata.as_table}}
+		<select name="parkir" required="" id="id_parkir">
+			<option value="{{parkir}}">{{parkir}}</option>
+		</select>
 		<input type="text" name="booking" maxlength="50" placeholder="id Booking" required="" id="id_booking" value="{{id_booking}}">
 
 

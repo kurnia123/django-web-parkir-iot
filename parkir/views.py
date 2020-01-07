@@ -102,7 +102,7 @@ def booking_view(request,idParkir):
 	data = tempatParkir.objects.get(id_parkir=idParkir)
 
 	context = {
-		'parkir':data,
+		'parkir':data.id_parkir,
 		'id_booking':idbooking,
 		'formpinjam_senjata':booking_view,
 	}

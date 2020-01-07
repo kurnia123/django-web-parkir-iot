@@ -108,7 +108,7 @@ def booking_view(request,idParkir):
 	}
 
 	if request.method == 'POST':
-		if booking_view.is_valid:
+		if booking_view.is_valid():
 			booking_view.save()
 			return redirect('/parkir/')
 	return render(request,'parkir/booking_view.html',context)

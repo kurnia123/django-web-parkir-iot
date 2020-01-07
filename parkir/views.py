@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
 from .models import tempatParkir,Booking
-from .form import BookingForm
+from .forms import BookingForm
 import random
 # Create your views here.
 from django.contrib.auth.mixins import LoginRequiredMixin

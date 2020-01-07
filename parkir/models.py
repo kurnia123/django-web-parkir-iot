@@ -16,7 +16,7 @@ class tempatParkir(models.Model):
 	position1 = models.IntegerField()
 	delayposition = models.IntegerField()
 	delayposition1 = models.IntegerField()
-	user = models.OneToOneField(User, on_delete=models.DO_NOTHING,null=True)
+	user = models.OneToOneField(User, on_delete=models.SET_NULL,null=True)
 
 	def __str__(self):
 		return "{}".format(self.id_parkir)

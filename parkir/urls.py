@@ -6,6 +6,7 @@ from .views import (
 	logoutView,
 	updateDBBooking,
 	updateDBKosong,
+	booking_view,
 	UseParkir,)
 
 app_name="parkir"

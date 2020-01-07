@@ -7,7 +7,7 @@
 {% block contents %}
 	<form method="POST">
 		{% csrf_token %}
-		{{formpinjam_senjata.as_table}}
+		
 		<input type="text" name="booking" maxlength="50" placeholder="id Booking" required="" id="id_booking" value="{{id_booking}}">
 
 		<button type="Submit" class="btn btn-primaty">Submit</button>

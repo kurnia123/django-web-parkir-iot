@@ -101,7 +101,7 @@ def booking_view(request,idParkir):
 	idbooking = "BO" + value
 
 	context = {
-		'id_booking':idbooking
+		'id_booking':idbooking,
 		'formpinjam_senjata':booking_view
 	}
 

@@ -101,11 +101,14 @@ def booking_view(request,idParkir):
 	idbooking = "BO" + value
 
 	context = {
+		'id_booking':idbooking
 		'formpinjam_senjata':booking_view
 	}
 
 	if request.method == 'POST':
 		if booking_view.is_valid:
+			data = tempatParkir.objects.get(id_parkir=idParkir)
+			booking_view.parkir = data
 			booking_view.save()
 			return redirect('/parkir/')
 	return render(request,'parkir/booking_view.html',context)

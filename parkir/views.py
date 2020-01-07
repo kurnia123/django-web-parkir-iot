@@ -58,9 +58,12 @@ def updateDBBooking(request,idParkir):
 def updateDBKosong(request,idParkir):
 	user = User.objects.get(username=request.user)
 	data = tempatParkir.objects.get(id_parkir=idParkir)
+	databooking = Booking.objects.get(booking=data.booking.pk)
+	databooking.delete()
+	databooking.save()
+	
 	data.status = 'kosong'
 	data.user = None
-
 	data.save()
 
 	return redirect("/parkir/")

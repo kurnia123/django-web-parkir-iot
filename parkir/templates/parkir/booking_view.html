@@ -8,7 +8,6 @@
 	<form method="POST">
 		{% csrf_token %}
 		
-		{{formpinjam_senjata.as_table}}
 		<select name="parkir" required="" id="id_parkir">
 			<option value="{{parkir}}">{{parkir}}</option>
 		</select>

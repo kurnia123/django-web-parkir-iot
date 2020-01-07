@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class tempatParkir(models.Model):
-
 	STATUS_CHOICES = (
 		("kosong","Kosong"),
 		("booking","Booking"),
@@ -19,7 +18,13 @@ class tempatParkir(models.Model):
 	delayposition1 = models.IntegerField()
 	user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
 
-
 	def __str__(self):
 		return "{}.{}".format(self.id,self.id_parkir)
 	
+
+class Booking(models.Model):
+	booking = models.CharField(primary_key=True, max_length=50)
+	parkir = models.OneToOneField(tempatParkir, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return "{}.{}".format(self.booking,self.parkir)

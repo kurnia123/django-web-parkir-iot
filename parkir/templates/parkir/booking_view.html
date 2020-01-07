@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+	Booking View
+{% endblock page_title %}
+
+{% block contents %}
+	<form method="POST">
+		{% csrf_token %}
+		{{formpinjam_senjata.as_table}}
+
+		<button type="Submit" class="btn btn-primaty">Submit</button>
+
+	</form>
+
+{% endblock contents %}

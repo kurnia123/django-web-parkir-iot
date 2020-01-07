@@ -4,11 +4,14 @@ from django.views.generic import ListView,UpdateView,TemplateView
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
-from .models import tempatParkir
+from .models import tempatParkir,Booking
+from .form import BookingForm
+import random
 # Create your views here.
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.conf import settings
+
 
 class ParkirLIst(LoginRequiredMixin,ListView):
 	model = tempatParkir
@@ -38,7 +41,6 @@ class UseParkir(LoginRequiredMixin,ListView):
 
 
 def updateDBBooking(request,idParkir):
-
 	try:
 		user = User.objects.get(username=request.user)
 		data = tempatParkir.objects.get(id_parkir=idParkir)
@@ -90,3 +92,21 @@ def loginView(request):
 def logoutView(request):
 	logout(request)	
 	return redirect("/parkir/login/")
+
+
+def booking_view(request,idParkir):
+	booking_view = BookingForm(request.POST or None)
+
+	value = str(random.randint(1000,9999))
+	idbooking = "BO" + value
+
+	context = {
+		'formpinjam_senjata':booking_view
+	}
+
+	if request.method == 'POST':
+		if booking_view.is_valid:
+			booking_view.save()
+			return redirect('/parkir/')
+	return render(request,'parkir/booking_view.html',context)
+	

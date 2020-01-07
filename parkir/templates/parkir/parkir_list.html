@@ -9,7 +9,7 @@
 	<h1>Pilih Parkir</h1>
 
 	{% for list in parkir_list %}
-		<a href ="{% url 'parkir:update' list.id_parkir %}" >
+		<a href ="{% url 'parkir:booking' list.id_parkir %}" >
 			<button type="submit" id="parkir" class="link btn btn-primary" value="{{list.position}}">{{list.id_parkir}}</button>
 		</a>
 	{% endfor %}

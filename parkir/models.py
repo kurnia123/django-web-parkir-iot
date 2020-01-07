@@ -16,7 +16,7 @@ class tempatParkir(models.Model):
 	position1 = models.IntegerField()
 	delayposition = models.IntegerField()
 	delayposition1 = models.IntegerField()
-	user = models.OneToOneField(User, on_delete=models.SET_NULL,null=True)
+	user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
 
 	def __str__(self):
 		return "{}".format(self.id_parkir)
@@ -24,7 +24,7 @@ class tempatParkir(models.Model):
 
 class Booking(models.Model):
 	booking = models.CharField(primary_key=True, max_length=50)
-	parkir = models.OneToOneField(tempatParkir, on_delete=models.CASCADE, null=True)
+	parkir = models.OneToOneField(tempatParkir, on_delete=models.SET_NULL, null=True)
 
 	def __str__(self):
 		return "{}.{}".format(self.booking,self.parkir)

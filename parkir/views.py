@@ -61,7 +61,7 @@ def updateDBKosong(request,idParkir):
 	databooking = Booking.objects.get(booking=data.booking.pk)
 	databooking.delete()
 	databooking.save()
-	
+
 	data.status = 'kosong'
 	data.user = None
 	data.save()
@@ -105,11 +105,10 @@ def booking_view(request,idParkir):
 	data = tempatParkir.objects.get(id_parkir=idParkir)
 
 	context = {
-		'parkir':data.id_parkir,
+		'parkir':idParkir,
 		'id_booking':idbooking,
 		'formpinjam_senjata':booking_view,
 	}
-
 
 	if request.method == 'POST':
 		if booking_view.is_valid():

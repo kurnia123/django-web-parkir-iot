@@ -107,9 +107,19 @@ def booking_view(request,idParkir):
 		'formpinjam_senjata':booking_view,
 	}
 
+
 	if request.method == 'POST':
 		if booking_view.is_valid():
+			try:
+				user = User.objects.get(username=request.user)
+				data = tempatParkir.objects.get(id_parkir=idParkir)
+				data.status = 'booking'
+				data.user = user
+
+				data.save()
+			except Exception as e:
+				return redirect("/parkir/")
 			booking_view.save()
-			return redirect('/parkir/')
+			return redirect("/parkir/useparkir/")
 	return render(request,'parkir/booking_view.html',context)
 	

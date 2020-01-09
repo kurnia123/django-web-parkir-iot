@@ -37,6 +37,7 @@ class UseParkir(LoginRequiredMixin,ListView):
 	login_url = '/parkir/login/'
 	redirect_field_name = 'redirect_to'
 
+
 	def get_queryset(self):
 		user = User.objects.get(username=self.request.user)
 		self.queryset = self.model.objects.filter(status='booking',user=user)

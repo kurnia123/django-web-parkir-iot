@@ -13,7 +13,7 @@
 		<br>
 		<h3>ID {{list.booking.status}} : {{list.booking.booking}}</h3>
 		<br>
-		{% if {{list.booking.status}} == parkir %}
+		{% if list.booking.status == "parkir" %}
 			<a href="#" class="btn btn-danger">Keluar Parkir</a>
 		{% else %}
 			<a href="{% url 'parkir:kosong' list.id_parkir %}" class="btn btn-danger">Cancel Booking</a>

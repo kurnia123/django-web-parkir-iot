@@ -22,7 +22,7 @@ class tempatParkir(models.Model):
 
 class Booking(models.Model):
 	booking = models.CharField(primary_key=True, max_length=50)
-	parkir = models.OneToOneField(tempatParkir, on_delete=models.DO_NOTHING, null=True,blank=True)
+	parkir = models.OneToOneField(tempatParkir, on_delete=models.CASCADE, null=True)
 
 	def __str__(self):
 		return "{}.{}".format(self.booking,self.parkir)

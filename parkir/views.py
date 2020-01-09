@@ -125,13 +125,13 @@ def booking_view(request,idParkir):
 	
 
 
-def onParkir(request):
-	pass
+# def onParkir(request):
+# 	pass
 
-	# if request.method == "POST":
-	# 	kode_booking = request.POST['onparkir']
-	# 	data = Booking.objects.get(booking=kode_booking)
+# 	# if request.method == "POST":
+# 	# 	kode_booking = request.POST['onparkir']
+# 	# 	data = Booking.objects.get(booking=kode_booking)
 
-	# 	pass
+# 	# 	pass
 
-	# return render(request,'parkir/onparkir.html')
+# 	# return render(request,'parkir/onparkir.html')

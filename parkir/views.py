@@ -126,7 +126,6 @@ def booking_view(request,idParkir):
 
 
 def onParkir(request):
-
 	value = str(random.randint(1000,9999))
 	idonparkir = "OP" + value
 

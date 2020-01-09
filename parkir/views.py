@@ -159,7 +159,14 @@ def keluarParkir(request,idbooking):
 	idonparkir = "OP" + value
 
 	try:
+		user = User.objects.get(username=request.user)
 		data = Booking.objects.get(booking=idbooking)
+
+		data_tempatparkir = tempatParkir.objects.get(id_parkir=data.parkir_id)
+		data_tempatparkir.status = 'kosong'
+		data_tempatparkir.user = None
+		data_tempatparkir.save()
+
 		OnParkir.objects.create(
 			id_on_parkir = idonparkir,
 			position = int(data.parkir.position),

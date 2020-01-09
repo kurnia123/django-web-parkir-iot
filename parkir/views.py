@@ -145,6 +145,7 @@ def onParkir(request):
 				position = int(data.parkir.position),
 				delayposition = int(data.parkir.delayposition),
 				)
+			return redirect("/parkir/useparkir")
 		except Exception as e:
 			print(e)
 			print("gagal")
@@ -153,10 +154,31 @@ def onParkir(request):
 	return render(request,'parkir/onparkir.html')
 
 
+def keluarParkir(request,idbooking):
+	value = str(random.randint(1000,9999))
+	idonparkir = "OP" + value
+
+	try:
+		data = Booking.objects.get(booking=idbooking)
+		OnParkir.objects.create(
+			id_on_parkir = idonparkir,
+			position = int(data.parkir.position),
+			delayposition = int(data.parkir.delayposition),
+			)
+		data.delete()
+		return redirect("/parkir/")
+	except Exception as e:
+		print(e)
+		print("gagal")
+		return redirect("/parkir/useparkir/")
+
+	return redirect("/parkir/");
+
 
 def delete_onparkir(request):
 	data = OnParkir.objects.all().first()
 	data.delete()
+	return redirect("/parkir/")
 
 
 

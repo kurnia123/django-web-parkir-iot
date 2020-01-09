@@ -33,6 +33,6 @@ class OnParkir(models.Model):
 	position = models.IntegerField()
 	delayposition = models.IntegerField()
 
-    def __str__(self):
-        return "{}".format(self.id_on_parkir)
+	def __str__(self):
+		return "{}".format(self.id_on_parkir)
     

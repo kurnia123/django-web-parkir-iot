@@ -3,8 +3,10 @@ from django.views.generic import ListView,UpdateView,TemplateView
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.utils import simplejson
+from django.core import serializers
 
-from .models import tempatParkir,Booking
+from .models import tempatParkir,Booking,OnParkir
 from .forms import BookingForm
 import random
 # Create your views here.
@@ -130,8 +132,8 @@ def onParkir(request):
 	idonparkir = "OP" + value
 
 	if request.method == "POST":
+		kode_booking = request.POST['onparkir']
 		try:
-			kode_booking = request.POST['onparkir']
 			data = Booking.objects.get(booking=kode_booking)
 			OnParkir.objects.create(
 				id_on_parkir = idonparkir,
@@ -142,3 +144,13 @@ def onParkir(request):
 			return redirect("/parkir/onparkir/")
 
 	return render(request,'parkir/onparkir.html')
+
+
+def jsonData(request):
+	
+	data = OnParkir.objects.all()
+
+	raw_json = {
+		'position': data.,
+		'delayposition':,
+	}

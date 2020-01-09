@@ -142,6 +142,7 @@ def onParkir(request):
 				position = int(data.parkir.position),
 				delayposition = int(data.parkir.delayposition),
 				)
+			data.delete()
 		except Exception as e:
 			print(e)
 			print("gagal")
@@ -150,11 +151,13 @@ def onParkir(request):
 	return render(request,'parkir/onparkir.html')
 
 
-# def jsonData(request):
+def jsonData(request):
 	
-# 	data = OnParkir.objects.all()
+	data = OnParkir.objects.all().first()
 
-# 	raw_json = {
-# 		'position': data.,
-# 		'delayposition':,
-# 	}
+	raw_json = {
+		'position': data.position,
+		'delayposition':data.delayposition,
+	}
+
+	return JsonResponse(raw_json)

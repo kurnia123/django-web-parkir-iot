@@ -8,7 +8,8 @@ from .views import (
 	updateDBKosong,
 	booking_view,
 	UseParkir,
-	onParkir,)
+	onParkir,
+	jsonData,)
 
 app_name="parkir"
 urlpatterns = [
@@ -20,4 +21,5 @@ urlpatterns = [
 	url(r'^updateKosong/(?P<idParkir>[\w]+)$',updateDBKosong,name='kosong'),
 	url(r'^bookingview/(?P<idParkir>[\w]+)$',booking_view,name='booking'),
 	url(r'^onparkir/$',onParkir,name='onparkir'),
+	url(r'^jsondata/$',jsonData,name='jsondata'),
 ]

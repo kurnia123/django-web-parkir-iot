@@ -22,6 +22,7 @@ class tempatParkir(models.Model):
 
 class Booking(models.Model):
 	booking = models.CharField(primary_key=True, max_length=50)
+	status = models.CharField(max_length=50)
 	parkir = models.OneToOneField(tempatParkir, on_delete=models.CASCADE, null=True)
 
 	def __str__(self):

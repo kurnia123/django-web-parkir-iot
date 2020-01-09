@@ -7,12 +7,12 @@
 {% block contents %}
 	<h1><b>Lokasi Parkir</b></h1>
 	{% for list in use_parkir %}
-		<a href ="{% url 'parkir:kosong' list.id_parkir %}" >
-			<button type="submit" id="parkir" class="link btn btn-primary" value="{{list.position}}">{{list.id_parkir}}</button>
+		<a href ="" >
+			<button type="submit" id="parkir" class="btn btn-primary" value="{{list.position}}">{{list.id_parkir}}</button>
 		</a>
 		<br>
 		<h3>ID Booking : {{list.booking.booking}}</h3>
 		<br>
-		<a href="" "email me" class="btn btn-danger">Cancel Booking</a>
+		<a href="{% url 'parkir:kosong' list.id_parkir %}" class="btn btn-danger">Cancel Booking</a>
 	{% endfor %}
 {% endblock contents %}

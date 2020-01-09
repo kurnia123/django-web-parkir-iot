@@ -7,7 +7,8 @@ from .views import (
 	updateDBBooking,
 	updateDBKosong,
 	booking_view,
-	UseParkir,)
+	UseParkir,
+	onParkir,)
 
 app_name="parkir"
 urlpatterns = [
@@ -18,4 +19,5 @@ urlpatterns = [
 	url(r'^updateBooking/(?P<idParkir>[\w]+)$',updateDBBooking,name='update'),
 	url(r'^updateKosong/(?P<idParkir>[\w]+)$',updateDBKosong,name='kosong'),
 	url(r'^bookingview/(?P<idParkir>[\w]+)$',booking_view,name='booking'),
+	url(r'^onparkir/$,',onParkir,name='onparkir')
 ]

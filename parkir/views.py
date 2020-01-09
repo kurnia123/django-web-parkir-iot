@@ -125,13 +125,21 @@ def booking_view(request,idParkir):
 	
 
 
-# def onParkir(request):
-# 	pass
+def onParkir(request):
 
-# 	# if request.method == "POST":
-# 	# 	kode_booking = request.POST['onparkir']
-# 	# 	data = Booking.objects.get(booking=kode_booking)
+	value = str(random.randint(1000,9999))
+	idonparkir = "OP" + value
 
-# 	# 	pass
+	if request.method == "POST":
+		try:
+			kode_booking = request.POST['onparkir']
+			data = Booking.objects.get(booking=kode_booking)
+			OnParkir.objects.create(
+				id_on_parkir = idonparkir,
+				position = kode_booking.parkir.position,
+				delayposition = kode_booking.parkir.delayposition,
+				)
+		except Exception as e:
+			return redirect("/parkir/onparkir/")
 
-# 	# return render(request,'parkir/onparkir.html')
+	return render(request,'parkir/onparkir.html')

@@ -123,3 +123,15 @@ def booking_view(request,idParkir):
 			return redirect("/parkir/useparkir/")
 	return render(request,'parkir/booking_view.html',context)
 	
+
+
+def onParkir(request):
+	pass
+
+	# if request.method == "POST":
+	# 	kode_booking = request.POST['onparkir']
+	# 	data = Booking.objects.get(booking=kode_booking)
+
+	# 	pass
+
+	# return render(request,'parkir/onparkir.html')

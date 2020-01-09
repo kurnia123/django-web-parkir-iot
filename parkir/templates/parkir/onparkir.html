@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+	Masuk Parkir
+{% endblock page_title %}
+
+{% block contents %}
+	<form method="POST">
+		{% csrf_token %}
+		<label for="onparkir">Masukkan Kode Booking: </label>
+		<input type="text" name="onparkir" id="onparkir">
+		<br>
+		<button type="submit">Login</button>
+	</form>
+{% endblock contents %}

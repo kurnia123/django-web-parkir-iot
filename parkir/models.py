@@ -26,3 +26,13 @@ class Booking(models.Model):
 
 	def __str__(self):
 		return "{}.{}".format(self.booking,self.parkir)
+
+
+class OnParkir(models.Model):
+	id_on_parkir = models.CharField(primary_key=True, max_length=50)
+	position = models.IntegerField()
+	delayposition = models.IntegerField()
+
+    def __str__(self):
+        return "{}".format(self.id_on_parkir)
+    

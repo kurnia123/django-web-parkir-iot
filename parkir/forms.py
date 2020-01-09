@@ -7,6 +7,7 @@ class BookingForm(forms.ModelForm):
         model = Booking
         fields = [
         'booking',
-        'parkir'
+        'parkir',
+        'status',
         ]
     

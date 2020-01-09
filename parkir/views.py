@@ -3,8 +3,9 @@ from django.views.generic import ListView,UpdateView,TemplateView
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from django.utils import simplejson
-from django.core import serializers
+#from django.utils import simplejson
+#from django.core import serializers
+from django.http import JsonResponse
 
 from .models import tempatParkir,Booking,OnParkir
 from .forms import BookingForm
@@ -132,15 +133,18 @@ def onParkir(request):
 	idonparkir = "OP" + value
 
 	if request.method == "POST":
-		kode_booking = request.POST['onparkir']
+		kode_booking = str(request.POST['onparkir'])
+		print(kode_booking)
 		try:
 			data = Booking.objects.get(booking=kode_booking)
 			OnParkir.objects.create(
 				id_on_parkir = idonparkir,
-				position = kode_booking.parkir.position,
-				delayposition = kode_booking.parkir.delayposition,
+				position = int(data.parkir.position),
+				delayposition = int(data.parkir.delayposition),
 				)
 		except Exception as e:
+			print(e)
+			print("gagal")
 			return redirect("/parkir/onparkir/")
 
 	return render(request,'parkir/onparkir.html')

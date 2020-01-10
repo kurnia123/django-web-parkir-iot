@@ -14,6 +14,8 @@ class tempatParkir(models.Model):
 		max_length=50,default='kosong')
 	position = models.IntegerField()
 	delayposition = models.IntegerField()
+	backposition = models.IntegerField()
+	backdelayposition = models.IntegerField()
 	user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
 
 	def __str__(self):
@@ -33,6 +35,9 @@ class OnParkir(models.Model):
 	id_on_parkir = models.CharField(primary_key=True, max_length=50)
 	position = models.IntegerField()
 	delayposition = models.IntegerField()
+	backposition = models.IntegerField()
+	backdelayposition = models.IntegerField()
+	status = models.CharField(max_length=50)
 
 	def __str__(self):
 		return "{}".format(self.id_on_parkir)

@@ -11,7 +11,8 @@ from .views import (
 	onParkir,
 	jsonData,
 	delete_onparkir,
-	keluarParkir,)
+	keluarParkir,
+	proses,)
 
 app_name="parkir"
 urlpatterns = [
@@ -26,4 +27,5 @@ urlpatterns = [
 	url(r'^jsondata/$',jsonData,name='jsondata'),
 	url(r'^deleteonparkir/$',delete_onparkir,name='delete_on_parkir'),
 	url(r'^keluarparkir/(?P<idbooking>[\w]+)$',keluarParkir,name='keluarparkir'),
+	url(r'^proses/',proses,name="proses"),
 ]

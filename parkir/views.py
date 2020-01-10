@@ -33,7 +33,7 @@ class UseParkir(LoginRequiredMixin,ListView):
 	model = tempatParkir
 	template_name = "parkir/use_parkir.html"
 	context_object_name = 'use_parkir'
-	Login Required
+	#Login Required
 	login_url = '/parkir/login/'
 	redirect_field_name = 'redirect_to'
 	data = OnParkir.objects.all().first()
@@ -46,7 +46,7 @@ class UseParkir(LoginRequiredMixin,ListView):
 		self.kwargs.update(self.extra_context)
 		kwargs = self.kwargs
 		context = super().get_context_data(**kwargs)
-	    return context
+		return context
 
 	def get_queryset(self):
 		user = User.objects.get(username=self.request.user)

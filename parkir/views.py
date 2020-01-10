@@ -219,9 +219,9 @@ def jsonData(request):
 	raw_json = {
 		'position': data.position,
 		'delayposition':data.delayposition,
-		'backdelayposition':data.backdelayposition,
-		'backposition':data.backposition,
-		'status':data.status,
+		# 'backdelayposition':data.backdelayposition,
+		# 'backposition':data.backposition,
+		# 'status':data.status,
 	}
 
 	return JsonResponse(raw_json)

@@ -36,17 +36,17 @@ class UseParkir(LoginRequiredMixin,ListView):
 	#Login Required
 	login_url = '/parkir/login/'
 	redirect_field_name = 'redirect_to'
-	data = OnParkir.objects.all().first()
+	# data = OnParkir.objects.all().first()
 
-	extra_context = {
-		'onparkir':data
-	}
+	# extra_context = {
+	# 	'onparkir':data
+	# }
 
-	def get_context_data(self, **kwargs):
-		self.kwargs.update(self.extra_context)
-		kwargs = self.kwargs
-		context = super().get_context_data(**kwargs)
-		return context
+	# def get_context_data(self, **kwargs):
+	# 	self.kwargs.update(self.extra_context)
+	# 	kwargs = self.kwargs
+	# 	context = super().get_context_data(**kwargs)
+	# 	return context
 
 	def get_queryset(self):
 		user = User.objects.get(username=self.request.user)

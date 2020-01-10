@@ -42,10 +42,11 @@ class UseParkir(LoginRequiredMixin,ListView):
 	
 	try:
 		data = OnParkir.objects.all().first()
-		
+
 		extra_context = {
 			'onparkir':data
 		}
+		print(data.status)
 	except Exception as e:
 		print("gagal")
 		#return redirect("/parkir/useparkir/")

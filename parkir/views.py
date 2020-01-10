@@ -42,7 +42,7 @@ class UseParkir(LoginRequiredMixin,ListView):
 	
 	try:
 		data = OnParkir.objects.all().first()
-
+		
 		extra_context = {
 			'onparkir':data
 		}

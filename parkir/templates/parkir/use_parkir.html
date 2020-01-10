@@ -16,6 +16,7 @@
 		{% if list.booking.status == "parkir" %}
 			{% if onparkir == "kosong" %}
 			{% elif onparkir.status == "proses" %}
+				<b>{{onparkir.status}}</b>
 				<a href="{% url 'parkir:proses' %}" class="btn btn-warning">Prosesr</a>
 			{% endif %}
 			<a href="{% url 'parkir:keluarparkir' list.booking.booking %}" class="btn btn-danger">Keluar Parkir</a>

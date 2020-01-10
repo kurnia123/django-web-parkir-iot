@@ -47,7 +47,8 @@ class UseParkir(LoginRequiredMixin,ListView):
 			'onparkir':data
 		}
 	except Exception as e:
-		return redirect("/parkir/useparkir/")
+		print("gagal")
+		#return redirect("/parkir/useparkir/")
 
 	def get_context_data(self, **kwargs):
 		self.kwargs.update(self.extra_context)

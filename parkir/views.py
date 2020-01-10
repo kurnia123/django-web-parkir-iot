@@ -37,7 +37,7 @@ class UseParkir(LoginRequiredMixin,ListView):
 	login_url = '/parkir/login/'
 	redirect_field_name = 'redirect_to'
 	extra_context = {
-		'onparkir':'kosong',
+		'onparkir':OnParkir.objects.all().first(),
 	}
 
 

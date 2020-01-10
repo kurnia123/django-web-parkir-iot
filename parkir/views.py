@@ -45,7 +45,7 @@ class UseParkir(LoginRequiredMixin,ListView):
 	def get_context_data(self, **kwargs):
 		self.kwargs.update(self.extra_context)
 		kwargs = self.kwargs
-	    context = super().get_context_data(**kwargs)
+		context = super().get_context_data(**kwargs)
 	    return context
 
 	def get_queryset(self):
@@ -56,7 +56,7 @@ class UseParkir(LoginRequiredMixin,ListView):
 
 def proses(request):
 	data = OnParkir.objects.all().first()
-	data.status = "parkir"
+	# data.status = "parkir"
 	data.save()
 	return redirect("/parkir/useparkir/")
 
@@ -163,7 +163,7 @@ def onParkir(request):
 				delayposition = int(data.parkir.delayposition),
 				backposition = int(data.parkir.backposition),
 				backdelayposition = int(data.parkir.backdelayposition),
-				status = "proses",
+				# status = "proses",
 				)
 			return redirect("/parkir/useparkir")
 		except Exception as e:
@@ -193,7 +193,7 @@ def keluarParkir(request,idbooking):
 			delayposition = int(data.parkir.delayposition),
 			backposition = int(data.parkir.backposition),
 			backdelayposition = int(data.parkir.backdelayposition),
-			status = "proses",
+			# status = "proses",
 			)
 		data.delete()
 		return redirect("/parkir/")

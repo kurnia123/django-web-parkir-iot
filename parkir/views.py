@@ -54,11 +54,11 @@ class UseParkir(LoginRequiredMixin,ListView):
 		return super().get_queryset()
 
 
-def proses(request):
-	data = OnParkir.objects.all().first()
-	data.status = "parkir"
-	data.save()
-	return redirect("/parkir/useparkir/")
+# def proses(request):
+# 	data = OnParkir.objects.all().first()
+# 	data.status = "parkir"
+# 	data.save()
+# 	return redirect("/parkir/useparkir/")
 
 
 def updateDBBooking(request,idParkir):
@@ -161,9 +161,9 @@ def onParkir(request):
 				id_on_parkir = idonparkir,
 				position = int(data.parkir.position),
 				delayposition = int(data.parkir.delayposition),
-				backposition = int(data.parkir.backposition),
-				backdelayposition = int(data.parkir.backdelayposition),
-				status = "proses",
+				# backposition = int(data.parkir.backposition),
+				# backdelayposition = int(data.parkir.backdelayposition),
+				# status = "proses",
 				)
 			return redirect("/parkir/useparkir")
 		except Exception as e:
@@ -191,9 +191,9 @@ def keluarParkir(request,idbooking):
 			id_on_parkir = idonparkir,
 			position = int(data.parkir.position),
 			delayposition = int(data.parkir.delayposition),
-			backposition = int(data.parkir.backposition),
-			backdelayposition = int(data.parkir.backdelayposition),
-			status = "proses",
+			# backposition = int(data.parkir.backposition),
+			# backdelayposition = int(data.parkir.backdelayposition),
+			# status = "proses",
 			)
 		data.delete()
 		return redirect("/parkir/")

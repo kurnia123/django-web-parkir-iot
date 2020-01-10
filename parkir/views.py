@@ -42,19 +42,10 @@ class UseParkir(LoginRequiredMixin,ListView):
 
 
 	def get_context_data(self, *args, **kwargs):
-		try:
-			self.kwargs.update(self.extra_context)
-			onparkir = OnParkir.objects.all().first()
-			self.kwargs.update({'onparkir':onparkir})
-			kwargs = self.kwargs
-			print(kwargs)
-			return super().get_context_data(*args,**kwargs)
-		except Exception as e:
-			self.kwargs.update(self.extra_context)
-			self.kwargs.update({'onparkir':'kosong'})
-			kwargs = self.kwargs
-			print(kwargs)
-			return super().get_context_data(*args,**kwargs)
+		self.kwargs.update(self.extra_context)
+		kwargs = self.kwargs
+		print(kwargs)
+		return super().get_context_data(*args,**kwargs)
 
 
 	def get_queryset(self):

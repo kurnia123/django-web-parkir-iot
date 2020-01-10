@@ -36,17 +36,24 @@ class UseParkir(LoginRequiredMixin,ListView):
 	#Login Required
 	login_url = '/parkir/login/'
 	redirect_field_name = 'redirect_to'
-	# data = OnParkir.objects.all().first()
+	extra_context = {
+		'onparkir':'kosong'
+	}
+	
+	try:
+		data = OnParkir.objects.all().first()
 
-	# extra_context = {
-	# 	'onparkir':data
-	# }
+		extra_context = {
+			'onparkir':data
+		}
+	except Exception as e:
+		return redirect("/parkir/useparkir/")
 
-	# def get_context_data(self, **kwargs):
-	# 	self.kwargs.update(self.extra_context)
-	# 	kwargs = self.kwargs
-	# 	context = super().get_context_data(**kwargs)
-	# 	return context
+	def get_context_data(self, **kwargs):
+		self.kwargs.update(self.extra_context)
+		kwargs = self.kwargs
+		context = super().get_context_data(**kwargs)
+		return context
 
 	def get_queryset(self):
 		user = User.objects.get(username=self.request.user)
@@ -54,11 +61,11 @@ class UseParkir(LoginRequiredMixin,ListView):
 		return super().get_queryset()
 
 
-# def proses(request):
-# 	data = OnParkir.objects.all().first()
-# 	data.status = "parkir"
-# 	data.save()
-# 	return redirect("/parkir/useparkir/")
+def proses(request):
+	data = OnParkir.objects.all().first()
+	data.status = "parkir"
+	data.save()
+	return redirect("/parkir/useparkir/")
 
 
 def updateDBBooking(request,idParkir):
@@ -161,9 +168,9 @@ def onParkir(request):
 				id_on_parkir = idonparkir,
 				position = int(data.parkir.position),
 				delayposition = int(data.parkir.delayposition),
-				# backposition = int(data.parkir.backposition),
-				# backdelayposition = int(data.parkir.backdelayposition),
-				# status = "proses",
+				backposition = int(data.parkir.backposition),
+				backdelayposition = int(data.parkir.backdelayposition),
+				status = "proses",
 				)
 			return redirect("/parkir/useparkir")
 		except Exception as e:
@@ -191,9 +198,9 @@ def keluarParkir(request,idbooking):
 			id_on_parkir = idonparkir,
 			position = int(data.parkir.position),
 			delayposition = int(data.parkir.delayposition),
-			# backposition = int(data.parkir.backposition),
-			# backdelayposition = int(data.parkir.backdelayposition),
-			# status = "proses",
+			backposition = int(data.parkir.backposition),
+			backdelayposition = int(data.parkir.backdelayposition),
+			status = "proses",
 			)
 		data.delete()
 		return redirect("/parkir/")
@@ -219,9 +226,9 @@ def jsonData(request):
 	raw_json = {
 		'position': data.position,
 		'delayposition':data.delayposition,
-		# 'backdelayposition':data.backdelayposition,
-		# 'backposition':data.backposition,
-		# 'status':data.status,
+		'backdelayposition':data.backdelayposition,
+		'backposition':data.backposition,
+		'status':data.status,
 	}
 
 	return JsonResponse(raw_json)

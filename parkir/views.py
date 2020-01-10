@@ -33,7 +33,7 @@ class UseParkir(LoginRequiredMixin,ListView):
 	model = tempatParkir
 	template_name = "parkir/use_parkir.html"
 	context_object_name = 'use_parkir'
-	# Login Required
+	Login Required
 	login_url = '/parkir/login/'
 	redirect_field_name = 'redirect_to'
 	data = OnParkir.objects.all().first()
@@ -161,8 +161,8 @@ def onParkir(request):
 				id_on_parkir = idonparkir,
 				position = int(data.parkir.position),
 				delayposition = int(data.parkir.delayposition),
-				backposition = int(data.parkir.backposition),
-				backdelayposition = int(data.parkir.backdelayposition),
+				# backposition = int(data.parkir.backposition),
+				# backdelayposition = int(data.parkir.backdelayposition),
 				# status = "proses",
 				)
 			return redirect("/parkir/useparkir")
@@ -191,8 +191,8 @@ def keluarParkir(request,idbooking):
 			id_on_parkir = idonparkir,
 			position = int(data.parkir.position),
 			delayposition = int(data.parkir.delayposition),
-			backposition = int(data.parkir.backposition),
-			backdelayposition = int(data.parkir.backdelayposition),
+			# backposition = int(data.parkir.backposition),
+			# backdelayposition = int(data.parkir.backdelayposition),
 			# status = "proses",
 			)
 		data.delete()

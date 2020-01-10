@@ -8,5 +8,6 @@ class tempatParkirAdmin(admin.ModelAdmin):
 		'user',
 	]
 
+admin.site.register(OnParkir)
 admin.site.register(Booking)
 admin.site.register(tempatParkir,tempatParkirAdmin)

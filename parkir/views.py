@@ -193,7 +193,7 @@ def keluarParkir(request,idbooking):
 			delayposition = int(data.parkir.delayposition),
 			backposition = int(data.parkir.backposition),
 			backdelayposition = int(data.parkir.backdelayposition),
-			status = "proses",
+			status = "parkir",
 			)
 		data.delete()
 		return redirect("/parkir/")

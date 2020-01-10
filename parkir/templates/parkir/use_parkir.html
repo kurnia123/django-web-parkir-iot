@@ -15,7 +15,6 @@
 		<br>
 		{% if list.booking.status == "parkir" %}
 			<a href="{% url 'parkir:keluarparkir' list.booking.booking %}" class="btn btn-danger">Keluar Parkir</a>
-		
 		{% else %}
 			<a href="{% url 'parkir:kosong' list.id_parkir %}" class="btn btn-danger">Cancel Booking</a>
 		{% endif %}

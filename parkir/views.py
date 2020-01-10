@@ -43,9 +43,7 @@ class UseParkir(LoginRequiredMixin,ListView):
 	try:
 		data = OnParkir.objects.all().first()
 
-		extra_context = {
-			'onparkir':data
-		}
+		extra_context['onparkir']= data.status
 		print(data.status)
 	except Exception as e:
 		print("gagal")
@@ -223,14 +221,27 @@ def delete_onparkir(request):
 
 def jsonData(request):
 	
-	data = OnParkir.objects.all().first()
+	try:
+		data = OnParkir.objects.all().first()
 
-	raw_json = {
-		'position': data.position,
-		'delayposition':data.delayposition,
-		'backdelayposition':data.backdelayposition,
-		'backposition':data.backposition,
-		'status':data.status,
-	}
+		raw_json = {
+			'position': data.position,
+			'delayposition':data.delayposition,
+			'backdelayposition':data.backdelayposition,
+			'backposition':data.backposition,
+			'status':data.status,
+		}
 
-	return JsonResponse(raw_json)
+		return JsonResponse(raw_json)
+		
+	except Exception as e:
+		raw_json = {
+			'position':0,
+			'delayposition':0,
+			'backdelayposition':0,
+			'backposition':0,
+			'status':0,
+		}
+
+		return JsonResponse(raw_json)
+

@@ -14,9 +14,9 @@ class tempatParkir(models.Model):
 		max_length=50,default='kosong')
 	position = models.IntegerField()
 	delayposition = models.IntegerField()
+	user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
 	backposition = models.IntegerField()
 	backdelayposition = models.IntegerField()
-	user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
 
 	def __str__(self):
 		return "{}".format(self.id_parkir)

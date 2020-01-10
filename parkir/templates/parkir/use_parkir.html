@@ -14,8 +14,8 @@
 		<h3>ID {{list.booking.status}} : {{list.booking.booking}}</h3>
 		<br>
 		{% if list.booking.status == "parkir" %}
-			{% if onparkir == "kosong" %}
-			{% elif onparkir == "proses" %}
+			{% if onparkir.status == "kosong" %}
+			{% elif onparkir.status == "proses" %}
 				<a href="{% url 'parkir:proses' %}" class="btn btn-warning">Proses</a>
 			{% endif %}
 			<b>{{onparkir}}</b>

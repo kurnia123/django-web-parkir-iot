@@ -40,16 +40,15 @@ class UseParkir(LoginRequiredMixin,ListView):
 		'onparkir':'kosong'
 	}
 	
-	try:
-		data = OnParkir.objects.all().first()
-
-		extra_context['onparkir']= data.status
-		print(data.status)
-	except Exception as e:
-		print("gagal")
-		#return redirect("/parkir/useparkir/")
-
 	def get_context_data(self, **kwargs):
+		try:
+			data = OnParkir.objects.all().first()
+			self.extra_context['onparkir']= data
+			print(data.status)
+		except Exception as e:
+			print("gagal")
+			#return redirect("/parkir/useparkir/")
+
 		self.kwargs.update(self.extra_context)
 		kwargs = self.kwargs
 		context = super().get_context_data(**kwargs)
